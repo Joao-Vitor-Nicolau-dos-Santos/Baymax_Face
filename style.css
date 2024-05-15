@@ -1,0 +1,68 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #223040;
+}
+.phanton{
+    animation: rotateHorizontal 2s linear infinite alternate;
+}
+.corpo{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    height: 15em;
+    width: 10em;
+    background-color: antiquewhite;
+    border-radius: 40% 40% 0 0 ;
+    animation: moveRight 2s linear infinite alternate;
+}
+
+.braco{
+    position: absolute;
+    top: 50%;
+    background-color: antiquewhite;
+    width: 13em;
+    height: 2em;
+    border-radius: 50%;
+}
+.braco::after{
+    position: absolute;
+    top: 50%;
+    background-color: rgb(116, 98, 75);
+    width: 13em;
+    height: 2em;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+@keyframes moveRight {
+  from {
+    left: 0;
+  }
+  to {
+    left: calc(100% - 100px);
+  }
+}
+
+@keyframes rotateHorizontal {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
+  }
+
+  ::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    width: 1px;
+    height: 1px;
+    visibility: hidden;
+}
+
+/* Ativar rotação quando a div atingir o final da página */
+#rotatingDiv::after {
+    animation: checkEnd 2s linear infinite;
+}
